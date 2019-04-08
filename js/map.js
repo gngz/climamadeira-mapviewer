@@ -159,7 +159,7 @@ function initOptions() {
 */
 
 function options(el) {
-    $('#modelId').modal();
+    $('#modalOption').modal();
     $('#inputOpacity').val(layers_options[el].opacity*100);
     $('#inputZindex').val(layers_options[el].zindex);
     loaded_option = el;
@@ -199,7 +199,7 @@ $('#btn-Apply').click(function () {
         i++;
     });
     window.history.pushState('', '', '/map.html?'+query_string);
-    $('#modelId').modal('hide');
+    $('#modalOption').modal('hide');
     
 });
 
