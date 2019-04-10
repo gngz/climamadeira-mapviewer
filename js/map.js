@@ -2,7 +2,7 @@
     Script made by Gonçalo Passos - University of Madeira (Personal Page: http://diogopassos.pt)
 */
 
-var base_url = "http://192.168.2.135:5000/";
+var base_url = "http://clima-madeira.lan/api/";
 var layers_url = [];
 var layers = [];
 var layers_legend = [];
@@ -24,8 +24,8 @@ map.createPane('labels');
 map.getPane('labels').style.zIndex = 650;
 
 
-layers_url['necessidade-de-rega-do-bananeiro'] = base_url + "necessidade-de-rega-do-bananeiro_69f262";
-layers_url['ondas-de-calor'] = base_url + "ondas-de-calor-hyrzea_9bf21a";
+layers_url['necessidade-de-rega-do-bananeiro'] = base_url + "necessidade-de-rega-do-bananeiro";
+layers_url['ondas-de-calor'] = base_url + "ondas-de-calor";
 
 
 base_map = general_map;
@@ -109,7 +109,7 @@ $("input[name=layers]").change(function() {
         i++;
     });
 
-    window.history.pushState('', '', '/map.html?'+query_string);
+    window.history.pushState('', '', '?'+query_string);
 
     console.log("loaded layers:",layers);
 });
@@ -198,7 +198,7 @@ $('#btn-Apply').click(function () {
         
         i++;
     });
-    window.history.pushState('', '', '/map.html?'+query_string);
+    window.history.pushState('', '', '?'+query_string);
     $('#modalOption').modal('hide');
     
 });
