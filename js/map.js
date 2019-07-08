@@ -2,7 +2,7 @@
     Script made by Gonçalo Passos - University of Madeira (Personal Page: http://diogopassos.pt)
 */
 
-var base_url = "http://clima-madeira.lan/api/";
+var base_url = "//"+self.location.hostname + "/api/services/";
 var layers_url = [];
 var layers = [];
 var layers_legend = [];
@@ -24,9 +24,93 @@ map.createPane('labels');
 map.getPane('labels').style.zIndex = 650;
 
 
-layers_url['necessidade-de-rega-do-bananeiro'] = base_url + "necessidade-de-rega-do-bananeiro";
-layers_url['ondas-de-calor'] = base_url + "ondas-de-calor";
+layers_url['precepitacao-referencia'] = base_url + "precepitacao-referencia";
+layers_url['temperatura-referencia'] = base_url + "temperatura-referencia";
 
+// Layers Clima
+
+layers_url['anomalia-da-temperatura-inverno-a2-2070-2099'] = base_url + "anomalia-da-temperatura-inverno-a2-2070-2099";
+layers_url['anomalia-da-temperatura-primavera-a2-2070-2099'] = base_url + "anomalia-da-temperatura-primavera-a2-2070-2099";
+layers_url['anomalia-da-temperatura-verao-a2-2070-2099'] = base_url + "anomalia-da-temperatura-verao-a2-2070-2099";
+layers_url['anomalia-da-temperatura-outono-a2-2070-2099'] = base_url + "anomalia-da-temperatura-outono-a2-2070-2099";
+layers_url['anomalia-da-precipitacao-anual-a2-2070-2099'] = base_url + "anomalia-da-precipitacao-anual-a2-2070-2099";
+layers_url['anomalia-da-precipitacao-inverno-a2-2070-2099'] = base_url + "anomalia-da-precipitacao-inverno-a2-2070-2099";
+layers_url['anomalia-da-precipitacao-primavera-a2-2070-2099'] = base_url + "anomalia-da-precipitacao-primavera-a2-2070-2099";
+layers_url['anomalia-da-precipitacao-verao-a2-2070-2099'] = base_url + "anomalia-da-precipitacao-verao-a2-2070-2099";
+layers_url['anomalia-da-precipitacao-outono-a2-2070-2099'] = base_url + "anomalia-da-precipitacao-outono-a2-2070-2099";
+
+// Layers Agricultura
+
+layers_url['areas-agricolas'] = base_url + "areas-agricolas";
+layers_url['superficie-agricola-util-de-horticolas'] = base_url + "superficie-agricola-util-de-horticolas";
+layers_url['superficie-agricola-util-da-bananeira'] = base_url + "superficie-agricola-util-da-bananeira";
+layers_url['superficie-agricola-util-da-vinha'] = base_url + "superficie-agricola-util-da-vinha";
+layers_url['necessidade-de-rega-do-bananeiro'] = base_url + "necessidade-de-rega-do-bananeiro";
+layers_url['agricultura-banana'] = base_url + "agricultura-banana";
+layers_url['agricultura-area-potencial-vinha'] = base_url + "agricultura-area-potencial-vinha";
+layers_url['agricultura-area-potencial-banana'] = base_url + "agricultura-area-potencial-banana";
+layers_url['rega-bananeiro-a2-2040-2069'] = base_url + "rega-bananeiro-a2-2040-2069";
+layers_url['rega-bananeiro-a2-2070-2099'] = base_url + "rega-bananeiro-a2-2070-2099";
+layers_url['rega-bananeiro-b2-2040-2069'] = base_url + "rega-bananeiro-b2-2040-2069";
+
+
+// Layers Florestas
+layers_url['areas-ardidas'] = base_url + "areas-ardidas";
+layers_url['floresta-natural-da-madeira'] = base_url + "floresta-natural-da-madeira";
+layers_url['florestas-de-pinheiro-bravo'] = base_url + "florestas-de-pinheiro-bravo";
+layers_url['florestas-de-outros-carvalhos'] = base_url + "florestas-de-outros-carvalhos";
+layers_url['florestas-de-eucalipto'] = base_url + "florestas-de-eucalipto";
+layers_url['florestas-de-castanheiro'] = base_url + "florestas-de-castanheiro";
+layers_url['florestas-abertas-de-pinheiro-bravo'] = base_url + "florestas-abertas-de-pinheiro-bravo";
+layers_url['florestas-abertas-de-eucalipto'] = base_url + "florestas-abertas-de-eucalipto";
+layers_url['florestas-abertas-de-castanheiro'] = base_url + "florestas-abertas-de-castanheiro";
+layers_url['ifram'] = base_url + "ifram";
+
+
+// Layers Biodiversidade
+
+layers_url['bis-bis-regulus-madeirensis'] = base_url + "bis-bis-regulus-madeirensis";
+layers_url['freira-do-bugio-pterodroma-deserta'] = base_url + "freira-do-bugio-pterodroma-deserta";
+layers_url['tentilhao-fringilla-coelebs'] = base_url + "tentilhao-fringilla-coelebs";
+layers_url['freira-da-madeira-pterodroma-madeira'] = base_url + "freira-da-madeira-pterodroma-madeira";
+layers_url['pombo-trocaz-columba-trocaz'] = base_url + "pombo-trocaz-columba-trocaz";
+layers_url['alveola-cinzenta-motacilla-cinerea'] = base_url + "alveola-cinzenta-motacilla-cinerea";
+layers_url['pintarroxo-comum-carduelis-cannabina'] = base_url + "pintarroxo-comum-carduelis-cannabina";
+layers_url['aguia-de-asa-redonda-buteo-buteo'] = base_url + "aguia-de-asa-redonda-buteo-buteo";
+layers_url['corre-caminhos-anthus-bertheloti'] = base_url + "corre-caminhos-anthus-bertheloti";
+layers_url['rede-de-areas-marinhas'] = base_url + "rede-de-areas-marinhas";
+layers_url['matos-pouco-densos-exoticos'] = base_url + "matos-pouco-densos-exoticos";
+layers_url['matos-pouco-densos-autoctones'] = base_url + "matos-pouco-densos-autoctones";
+layers_url['matos-densos-exoticos'] = base_url + "matos-densos-exoticos";
+layers_url['matos-densos-autoctones'] = base_url + "matos-densos-autoctones";
+layers_url['reserva-natural'] = base_url + "reserva-natural";
+layers_url['rede-natura-2000'] = base_url + "rede-natura-2000";
+layers_url['parque-natural'] = base_url + "parque-natural";
+
+// Layers Energia
+
+layers_url['infraestruturas-energia'] = base_url + "infraestruturas-energia";
+
+
+//  Layers Riscos Hidrogeomorfológicos
+layers_url['movimento-de-vertentes-suscetibilidade'] = base_url + "movimento-de-vertentes-suscetibilidade";
+layers_url['cheias'] = base_url + "cheias";
+layers_url['deslizamento-de-vertentes'] = base_url + "deslizamento-de-vertentes";
+
+// Layers Saúde Humana
+
+layers_url['ondas-de-calor'] = base_url + "ondas-de-calor";
+layers_url['ondas-de-calor-hyrzea'] = base_url + "ondas-de-calor-hyrzea";
+layers_url['ondas-de-calor-a2-2040-2069'] = base_url + "ondas-de-calor-a2-2040-2069";
+layers_url['ondas-de-calor-8y3c2b'] = base_url + "ondas-de-calor-8y3c2b";
+
+
+
+// Layers Turismo
+
+layers_url['empreendimentos-turisticos'] = base_url + "empreendimentos-turisticos";
+layers_url['campos-de-golf'] = base_url + "campos-de-golf";
+layers_url['aeroportos'] = base_url + "aeroportos";
 
 base_map = general_map;
 base_map.addTo(map);
@@ -111,7 +195,7 @@ $("input[name=layers]").change(function() {
 
     window.history.pushState('', '', '?'+query_string);
 
-    console.log("loaded layers:",layers);
+    
 });
 
 /*
@@ -122,14 +206,14 @@ function addLayer(layername) {
 
     var url = layers_url[layername];
     $.get( url, function( data ) {
-        console.log(data);
+        
 
         var corner1 = L.latLng(data.bounds[1], data.bounds[0]), corner2 = L.latLng(data.bounds[3], data.bounds[2]);
         var bounds =  L.latLngBounds(corner1,corner2);
-        layers[layername] = L.tileLayer(layers_url[layername]+"/{z}/{x}/{y}.png",{zIndex: 2, opacity: layers_options[layername].opacity,  zIndex: layers_options[layername].zindex, bounds: bounds,minZoom:data.minzoom,maxZoom:data.maxzoom});
+        layers[layername] = L.tileLayer(layers_url[layername]+"/tiles/{z}/{x}/{y}.png",{zIndex: 2, opacity: layers_options[layername].opacity,  zIndex: layers_options[layername].zindex, bounds: bounds,minZoom:data.minzoom,maxZoom:data.maxzoom});
         layers[layername].addTo(map);
         layers_legend[layername] = L.control({position: 'bottomright'});
-        console.log("layer_Dat",layers[layername] );
+        
 
         layers_legend[layername].onAdd = function (map) {
             var div = L.DomUtil.create('div', 'info');
@@ -242,6 +326,5 @@ function loadSettings() {
 
 loadSettings();
 
-console.log("Lista de params:",getQueryString());
 
 

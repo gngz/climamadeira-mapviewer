@@ -6,10 +6,12 @@
 }
 
 #map { 
-    height: 100vh;
+    height: calc(100vh - 56px);
     width: 100%;
 
 }
+
+
 
 .legend {
     line-height: 18px;
@@ -39,15 +41,18 @@
 .wrapper {
     display: flex;
     justify-content: flex-start;
+    height: calc(100vh - 56px);
 }
 
 .map-control {
-    width:500px;
+    width:600px;
     box-shadow: inset -1px 0 0 rgba(143, 137, 137, 0.1);
     background-color: #f8f9fa;
     border-right-style: solid;
     border-right-color: #777;
     border-right-width: 0.1px;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .control-title {
@@ -60,16 +65,48 @@
     list-style-type: none;
     padding-left: 20px;
     padding-right: 10px;
+    margin-left: 20px;
 
 }
 .map-chooser li {
     margin-bottom: 10px;
     margin-top: 10px;
-    transition: .3s transform ease-in-out;
+   
+}
+
+.map-chooser li,ul {
+    position: relative;
+}
+
+.map-chooser li::before, li::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+}
+
+
+.map-chooser li::before {
+    background-color: #007bff;
+    transform: translate(0px, 11px);
+    top: 0;
+    width: 8px;
+    height: 1px;
+}
+.map-chooser::before {
+    position: absolute;
+    content: "";
+    height: calc(100% - 12px);
+    width: 1px;
+    background-color: #007bff;
+    left: 8px;
+}
+
+.map-chooser li:last-child::after{
+    height: 50%;
 }
 
 .config-button {
-   float: right;
+ float: right;
 }
 
 
@@ -109,3 +146,13 @@ a {
     }
 }
 
+.map-name {
+    max-width: 350px;
+    word-wrap:break-word;
+    display:inline-block;  
+}
+
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
